@@ -1,0 +1,51 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculateur d'âge</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 100px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calcul ton âge</h1>
+  <label for="birthdate">Date de naissance :</label><br><br>
+  <input type="date" id="birthdate"><br>
+  <button onclick="calculerAge()">Calculer</button>
+  <div id="result"></div>
+
+  <script>
+    function calculerAge() {
+      const birthdate = new Date(document.getElementById('birthdate').value);
+      const today = new Date();
+      let age = today.getFullYear() - birthdate.getFullYear();
+      const m = today.getMonth() - birthdate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())) {
+        age--;
+}
+      document.getElementById('result').innerText = "Tu as " + age + " ans.";
+    }
+  </script>
+</body>
+</html>
+```
+
+---
